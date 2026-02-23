@@ -75,7 +75,7 @@ export default function CollectionsPage() {
                                             fontWeight: 300,
                                             letterSpacing: "0.1em",
                                             textTransform: "uppercase",
-                                            color: "var(--color-stone)",
+                                            color: "var(--color-on-dark)",
                                             opacity: 0.6,
                                             marginBottom: 4,
                                         }}
@@ -86,7 +86,7 @@ export default function CollectionsPage() {
                                         className="text-editorial"
                                         style={{
                                             fontSize: "var(--text-lg)",
-                                            color: "var(--color-stone)",
+                                            color: "var(--color-on-dark)",
                                         }}
                                     >
                                         {collection.name}
@@ -94,7 +94,7 @@ export default function CollectionsPage() {
                                     <p
                                         style={{
                                             fontSize: "var(--text-sm)",
-                                            color: "var(--color-stone)",
+                                            color: "var(--color-on-dark)",
                                             opacity: 0.7,
                                             fontWeight: 300,
                                             marginTop: 4,

@@ -54,7 +54,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 style={{
                     position: "absolute",
                     inset: 0,
-                    backgroundColor: "var(--color-noir)",
+                    backgroundColor: "var(--surface-overlay)",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
@@ -74,7 +74,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         position: "absolute",
                         top: 24,
                         right: 24,
-                        color: "var(--color-stone)",
+                        color: "var(--color-on-dark)",
                         padding: 8,
                     }}
                 >
@@ -93,12 +93,12 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                         className="text-editorial"
                         style={{
                             fontSize: "var(--text-lg)",
-                            color: "var(--color-stone)",
+                            color: "var(--color-on-dark)",
                             letterSpacing: "-0.02em",
                             transition: "color var(--duration-micro) var(--ease-default)",
                         }}
                         onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-bernstein)")}
-                        onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-stone)")}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-on-dark)")}
                     >
                         {link.label}
                     </Link>
