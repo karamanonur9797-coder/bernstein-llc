@@ -35,7 +35,7 @@ export default function LookbookPage() {
             {/* Hero */}
             <section
                 style={{
-                    backgroundColor: "var(--color-noir)",
+                    backgroundColor: "var(--surface-overlay)",
                     paddingTop: "var(--space-16)",
                     paddingBottom: "var(--space-12)",
                     textAlign: "center",
@@ -48,7 +48,7 @@ export default function LookbookPage() {
                             fontWeight: 300,
                             letterSpacing: "0.15em",
                             textTransform: "uppercase",
-                            color: "var(--color-stone)",
+                            color: "var(--color-on-dark)",
                             opacity: 0.5,
                             marginBottom: "var(--space-2)",
                         }}
@@ -59,7 +59,7 @@ export default function LookbookPage() {
                         className="text-editorial"
                         style={{
                             fontSize: "clamp(36px, 5vw, 72px)",
-                            color: "var(--color-stone)",
+                            color: "var(--color-on-dark)",
                             marginBottom: "var(--space-2)",
                         }}
                     >
@@ -68,7 +68,7 @@ export default function LookbookPage() {
                     <p
                         style={{
                             fontSize: "var(--text-base)",
-                            color: "var(--color-stone)",
+                            color: "var(--color-on-dark)",
                             opacity: 0.6,
                             fontWeight: 300,
                         }}

@@ -21,9 +21,22 @@
   --color-neutral-100: #FAFAF8;
   --color-neutral-900: #1A1A18;
 
+  /* --- Semantic Surfaces/Text --- */
+  --surface-page: var(--color-stone);
+  --surface-navbar: var(--color-stone);
+  --surface-card: var(--color-sand);
+  --surface-overlay: #0F0F0F;
+  --text-primary: var(--color-noir);
+  --text-muted: var(--color-olive);
+  --text-on-dark: #F2EDE4;
+  --navbar-bg: var(--surface-navbar);
+  --navbar-text: var(--text-primary);
+  --navbar-border: var(--color-sand);
+  --color-border: var(--color-sand);
+
   /* --- Backgrounds --- */
-  --background: var(--color-stone);
-  --foreground: var(--color-noir);
+  --background: var(--surface-page);
+  --foreground: var(--text-primary);
 
   /* --- Spacing (8px base) --- */
   --space-1: 8px;
@@ -57,6 +70,38 @@
   --bp-md: 768px;
   --bp-lg: 1280px;
   --bp-xl: 1920px;
+}
+
+html.dark {
+  --color-noir: #FFFFFF;
+  --color-stone: #1A1A1A;
+  --color-olive: #A0A0A0;
+  --color-sand: #1A1A1A;
+  --surface-page: #0A0A0A;
+  --surface-navbar: #111111;
+  --surface-card: #1A1A1A;
+  --surface-overlay: #111111;
+  --text-primary: #FFFFFF;
+  --text-muted: #A0A0A0;
+  --text-on-dark: #FFFFFF;
+  --navbar-bg: #111111;
+  --navbar-text: #FFFFFF;
+  --navbar-border: #333333;
+  --color-border: #333333;
+  --background: #0A0A0A;
+  --foreground: #FFFFFF;
+}
+
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    border-color 300ms ease,
+    fill 300ms ease,
+    stroke 300ms ease !important;
 }
 
 
@@ -126,6 +171,33 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+p,
+span,
+label,
+a,
+input,
+textarea,
+select,
+button,
+li,
+small {
+  color: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
+}
+
+html.dark input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+html.dark textarea,
+html.dark select {
+  background-color: var(--surface-card);
+  border-color: var(--color-border);
+  color: var(--foreground);
 }
 
 /* --- Headings: Editorial New, weight 200 --- */
@@ -198,35 +270,35 @@ img {
 }
 
 .btn-primary {
-  background: var(--color-noir);
-  color: var(--color-stone);
+  background: var(--surface-overlay);
+  color: var(--text-on-dark);
 }
 
 .btn-primary:hover {
   background: var(--color-bernstein);
-  color: var(--color-stone);
+  color: var(--text-on-dark);
 }
 
 .btn-ghost {
   background: transparent;
-  border: 1px solid var(--color-noir);
-  color: var(--color-noir);
+  border: 1px solid var(--navbar-text);
+  color: var(--navbar-text);
 }
 
 .btn-ghost:hover {
-  background: var(--color-noir);
-  color: var(--color-stone);
+  background: var(--navbar-text);
+  color: var(--surface-page);
 }
 
 .btn-ghost-light {
   background: transparent;
-  border: 1px solid var(--color-stone);
-  color: var(--color-stone);
+  border: 1px solid var(--text-on-dark);
+  color: var(--text-on-dark);
 }
 
 .btn-ghost-light:hover {
-  background: var(--color-stone);
-  color: var(--color-noir);
+  background: var(--text-on-dark);
+  color: var(--surface-page);
 }
 
 /* ============================================
@@ -239,7 +311,7 @@ img {
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-noir);
+  color: var(--navbar-text);
   transition: color var(--duration-micro) var(--ease-default);
 }
 
@@ -249,7 +321,7 @@ img {
 
 /* --- Nav transparent state (on hero) --- */
 .nav-transparent .nav-link {
-  color: var(--color-stone);
+  color: var(--text-on-dark);
 }
 
 .nav-transparent .nav-link:hover {

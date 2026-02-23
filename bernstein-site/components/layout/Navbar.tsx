@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCartStore } from "@/store/cartStore";
@@ -9,6 +9,7 @@ import MobileMenu from "./MobileMenu";
 import CartDrawer from "../shop/CartDrawer";
 import AuthModal from "../auth/AuthModal";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
+import { useTheme } from "@/components/theme/ThemeProvider";
 
 const navLinks = [
     { href: "/collections/all", label: "Shop" },
@@ -20,21 +21,24 @@ const navLinks = [
 export default function Navbar() {
     const pathname = usePathname();
     const isHomepage = pathname === "/";
+    const { theme, toggleTheme } = useTheme();
+    const isDarkMode = theme === "dark";
     const { scrollDirection, isAtTop } = useScrollDirection();
     const isVisible = scrollDirection === "visible";
-    const shouldBeTransparent = isHomepage && isAtTop;
+    const shouldBeTransparent = isHomepage && isAtTop && !isDarkMode;
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { items, toggleCart } = useCartStore();
     const { isAuthenticated, openAuthModal } = useAuthStore();
     const itemCount = items.reduce((sum, i) => sum + i.quantity, 0);
+    const navTextColor = shouldBeTransparent ? "var(--color-on-dark)" : "var(--navbar-text)";
 
     return (
         <>
             <header
                 className="fixed top-0 left-0 right-0 z-50"
                 style={{
-                    backgroundColor: shouldBeTransparent ? "transparent" : "var(--color-stone)",
-                    borderBottom: shouldBeTransparent ? "none" : "1px solid var(--color-sand)",
+                    backgroundColor: shouldBeTransparent ? "transparent" : "var(--navbar-bg)",
+                    borderBottom: shouldBeTransparent ? "none" : "1px solid var(--navbar-border)",
                     transform: isVisible ? "translateY(0)" : "translateY(-100%)",
                     opacity: isVisible ? 1 : 0,
                     transition: "transform 400ms cubic-bezier(0.4, 0, 0.2, 1), opacity 300ms ease, background-color 400ms ease, border-bottom 400ms ease",
@@ -52,7 +56,7 @@ export default function Navbar() {
                                 fontSize: "var(--logo-size, 16px)",
                                 letterSpacing: "0.08em",
                                 lineHeight: 1.1,
-                                color: shouldBeTransparent ? "var(--color-stone)" : "var(--color-noir)",
+                                color: navTextColor,
                                 transition: "all var(--duration-macro) var(--ease-default)",
                             }}
                         >
@@ -79,7 +83,7 @@ export default function Navbar() {
                                 href={link.href}
                                 className="nav-link"
                                 style={{
-                                    color: shouldBeTransparent ? "var(--color-stone)" : "var(--color-noir)",
+                                    color: navTextColor,
                                     transition: "color var(--duration-micro) var(--ease-default)",
                                 }}
                             >
@@ -89,12 +93,34 @@ export default function Navbar() {
                     </nav>
                     {/* Right Icons */}
                     <div className="flex items-center" style={{ gap: "var(--space-2)" }}>
+                        {/* Theme Toggle */}
+                        <button
+                            onClick={toggleTheme}
+                            aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+                            className="p-2"
+                            style={{
+                                color: navTextColor,
+                                transition: "color 300ms ease, background-color 300ms ease, border-color 300ms ease",
+                                border: "1px solid transparent",
+                                borderRadius: 999,
+                                width: 36,
+                                height: 36,
+                                display: "inline-flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                            }}
+                        >
+                            <span style={{ fontSize: 16, lineHeight: 1 }}>
+                                {isDarkMode ? "☀️" : "🌙"}
+                            </span>
+                        </button>
+
                         {/* Search */}
                         <button
                             aria-label="Search"
                             className="p-2"
                             style={{
-                                color: shouldBeTransparent ? "var(--color-stone)" : "var(--color-noir)",
+                                color: navTextColor,
                                 transition: "color var(--duration-micro) var(--ease-default)",
                             }}
                         >
@@ -110,7 +136,7 @@ export default function Navbar() {
                             aria-label="Wishlist"
                             className="p-2 hidden md:block relative"
                             style={{
-                                color: shouldBeTransparent ? "var(--color-stone)" : "var(--color-noir)",
+                                color: navTextColor,
                                 transition: "color var(--duration-micro) var(--ease-default)",
                             }}
                         >
@@ -126,7 +152,7 @@ export default function Navbar() {
                                 aria-label="Account"
                                 className="p-2 hidden md:block"
                                 style={{
-                                    color: shouldBeTransparent ? "var(--color-stone)" : "var(--color-noir)",
+                                    color: navTextColor,
                                     transition: "color var(--duration-micro) var(--ease-default)",
                                 }}
                             >
@@ -141,7 +167,7 @@ export default function Navbar() {
                                 aria-label="Sign In"
                                 className="p-2 hidden md:block"
                                 style={{
-                                    color: shouldBeTransparent ? "var(--color-stone)" : "var(--color-noir)",
+                                    color: navTextColor,
                                     transition: "color var(--duration-micro) var(--ease-default)",
                                 }}
                             >
@@ -158,7 +184,7 @@ export default function Navbar() {
                             aria-label={`Shopping bag, ${itemCount} items`}
                             className="p-2 relative"
                             style={{
-                                color: shouldBeTransparent ? "var(--color-stone)" : "var(--color-noir)",
+                                color: navTextColor,
                                 transition: "color var(--duration-micro) var(--ease-default)",
                             }}
                         >
@@ -177,7 +203,7 @@ export default function Navbar() {
                                         height: 16,
                                         borderRadius: "50%",
                                         backgroundColor: "var(--color-bernstein)",
-                                        color: "var(--color-stone)",
+                                        color: "var(--color-on-dark)",
                                         fontSize: 9,
                                         fontWeight: 400,
                                     }}
@@ -193,7 +219,7 @@ export default function Navbar() {
                             aria-label="Open menu"
                             className="p-2 md:hidden"
                             style={{
-                                color: shouldBeTransparent ? "var(--color-stone)" : "var(--color-noir)",
+                                color: navTextColor,
                                 transition: "color var(--duration-micro) var(--ease-default)",
                             }}
                         >

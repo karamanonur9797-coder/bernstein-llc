@@ -41,8 +41,8 @@ export default function Footer() {
     return (
         <footer
             style={{
-                backgroundColor: "var(--color-noir)",
-                color: "var(--color-stone)",
+                backgroundColor: "var(--surface-overlay)",
+                color: "var(--color-on-dark)",
                 paddingTop: "var(--space-12)",
                 paddingBottom: "var(--space-6)",
             }}
@@ -87,7 +87,7 @@ export default function Footer() {
                                 background: "transparent",
                                 border: "1px solid rgba(242,237,228,0.3)",
                                 borderRight: "none",
-                                color: "var(--color-stone)",
+                                color: "var(--color-on-dark)",
                                 fontFamily: "var(--font-suisse), sans-serif",
                                 fontSize: 12,
                                 fontWeight: 300,
@@ -151,7 +151,7 @@ export default function Footer() {
                                         href={link.href}
                                         style={{
                                             fontSize: "var(--text-sm)",
-                                            color: "var(--color-stone)",
+                                            color: "var(--color-on-dark)",
                                             opacity: 0.7,
                                             fontWeight: 300,
                                             transition: "opacity var(--duration-micro) var(--ease-default)",

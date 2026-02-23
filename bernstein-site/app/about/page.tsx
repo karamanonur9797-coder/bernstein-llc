@@ -6,7 +6,7 @@ export default function AboutPage() {
             {/* Hero */}
             <section
                 style={{
-                    backgroundColor: "var(--color-noir)",
+                    backgroundColor: "var(--surface-overlay)",
                     paddingTop: "var(--space-16)",
                     paddingBottom: "var(--space-16)",
                     textAlign: "center",
@@ -17,7 +17,7 @@ export default function AboutPage() {
                         className="text-editorial"
                         style={{
                             fontSize: "clamp(36px, 5vw, 72px)",
-                            color: "var(--color-stone)",
+                            color: "var(--color-on-dark)",
                             marginBottom: "var(--space-3)",
                         }}
                     >
@@ -26,7 +26,7 @@ export default function AboutPage() {
                     <p
                         style={{
                             fontSize: "var(--text-base)",
-                            color: "var(--color-stone)",
+                            color: "var(--color-on-dark)",
                             opacity: 0.7,
                             fontWeight: 300,
                             maxWidth: 550,

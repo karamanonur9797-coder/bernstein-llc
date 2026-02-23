@@ -130,7 +130,7 @@ export default function CheckoutPage() {
                                         fontSize: 11,
                                         backgroundColor:
                                             i < currentStep ? "var(--color-bernstein)" : "transparent",
-                                        color: i < currentStep ? "var(--color-stone)" : "inherit",
+                                        color: i < currentStep ? "var(--color-on-dark)" : "inherit",
                                     }}
                                 >
                                     {i < currentStep ? "✓" : i + 1}
