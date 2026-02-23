@@ -12,7 +12,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
+        gridTemplateColumns: "repeat(4, 1fr)",
         gap: "var(--space-3)",
       }}
       className="product-grid"
@@ -22,14 +22,14 @@ export default function ProductGrid({ products }: ProductGridProps) {
       ))}
 
       <style jsx>{`
-        @media (max-width: 1279px) {
+        @media (max-width: 1024px) {
           .product-grid {
             grid-template-columns: repeat(2, 1fr) !important;
           }
         }
         @media (max-width: 767px) {
           .product-grid {
-            grid-template-columns: 1fr !important;
+            grid-template-columns: repeat(2, 1fr) !important;
             gap: var(--space-4) !important;
           }
         }

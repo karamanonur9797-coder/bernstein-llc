@@ -133,7 +133,7 @@ export default function HomePage() {
               marginBottom: "var(--space-6)",
             }}
           >
-            <h2 style={{ fontSize: "var(--text-xl)" }}>What We Make</h2>
+            <h2 style={{ fontSize: "var(--text-xl)" }}>NEW IN</h2>
             <Link
               href="/collections/all"
               className="nav-link"
@@ -146,7 +146,7 @@ export default function HomePage() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)",
+              gridTemplateColumns: "repeat(4, 1fr)",
               gap: "var(--space-3)",
             }}
             className="teaser-grid"
@@ -155,48 +155,6 @@ export default function HomePage() {
               <ProductCard key={product.slug} product={product} />
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ============================================
-          BRAND MANIFESTO
-          ============================================ */}
-      <section
-        style={{
-          backgroundColor: "var(--color-stone)",
-          paddingTop: "var(--space-24)",
-          paddingBottom: "var(--space-24)",
-        }}
-      >
-        <div className="container-site" style={{ textAlign: "center" }}>
-          <p
-            className="text-editorial"
-            style={{
-              fontSize: "clamp(24px, 4vw, 52px)",
-              color: "var(--color-noir)",
-              fontWeight: 200,
-              lineHeight: 1.15,
-              maxWidth: 900,
-              margin: "0 auto",
-              letterSpacing: "-0.02em",
-            }}
-          >
-            Built on a simple belief — that well-made things should be accessible
-            to people who care about them.
-          </p>
-          <p
-            style={{
-              marginTop: "var(--space-4)",
-              fontSize: "var(--text-sm)",
-              color: "var(--color-noir)",
-              opacity: 0.5,
-              fontWeight: 300,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-            }}
-          >
-            Based everywhere. Made with intent.
-          </p>
         </div>
       </section>
 
@@ -278,9 +236,14 @@ export default function HomePage() {
       </section>
 
       <style jsx>{`
+        @media (max-width: 1024px) {
+          .teaser-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
         @media (max-width: 767px) {
           .teaser-grid {
-            grid-template-columns: 1fr !important;
+            grid-template-columns: repeat(2, 1fr) !important;
           }
           .editorial-grid {
             grid-template-columns: 1fr !important;

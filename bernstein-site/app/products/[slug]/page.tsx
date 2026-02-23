@@ -312,9 +312,10 @@ export default function ProductDetailPage() {
                                 You May Also Like
                             </h2>
                             <div
+                                className="related-grid"
                                 style={{
                                     display: "grid",
-                                    gridTemplateColumns: `repeat(${Math.min(relatedProducts.length, 3)}, 1fr)`,
+                                    gridTemplateColumns: `repeat(${Math.min(relatedProducts.length, 4)}, 1fr)`,
                                     gap: "var(--space-3)",
                                     maxWidth: 900,
                                     margin: "0 auto",
@@ -333,6 +334,9 @@ export default function ProductDetailPage() {
         @media (max-width: 767px) {
           .pdp-grid {
             grid-template-columns: 1fr !important;
+          }
+          .related-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
           }
         }
       `}</style>
