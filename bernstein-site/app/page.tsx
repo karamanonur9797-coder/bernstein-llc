@@ -96,119 +96,6 @@ const HeroSection = ({
   );
 };
 
-const SplitHeroRow = ({
-  leftImageUrl,
-  rightImageUrl
-}: {
-  leftImageUrl: string;
-  rightImageUrl: string;
-}) => {
-  const [hoverLeft, setHoverLeft] = useState(false);
-  const [hoverRight, setHoverRight] = useState(false);
-
-  return (
-    <div
-      className="split-hero-container"
-      style={{
-        display: "flex",
-        width: "100vw",
-        overflow: "hidden",
-      }}
-    >
-      <Link
-        href="/collections/all"
-        className="split-hero-side"
-        onMouseEnter={() => setHoverLeft(true)}
-        onMouseLeave={() => setHoverLeft(false)}
-        style={{
-          position: "relative",
-          cursor: "pointer",
-          overflow: "hidden",
-          flex: "1 1 50%",
-          height: "100%",
-        }}
-      >
-        <div
-          style={{
-            width: "100%",
-            height: "100%",
-            backgroundImage: `url(${leftImageUrl})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            transition: "transform 1.2s cubic-bezier(0.2, 0, 0.2, 1)",
-            transform: hoverLeft ? "scale(1.04)" : "scale(1)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundColor: "#000",
-            opacity: hoverLeft ? 0.15 : 0.3,
-            transition: "opacity 0.4s ease",
-          }}
-        />
-      </Link>
-
-      <Link
-        href="/collections/all"
-        className="split-hero-side"
-        onMouseEnter={() => setHoverRight(true)}
-        onMouseLeave={() => setHoverRight(false)}
-        style={{
-          position: "relative",
-          cursor: "pointer",
-          overflow: "hidden",
-          flex: "1 1 50%",
-          height: "100%",
-        }}
-      >
-        <div
-          style={{
-            width: "100%",
-            height: "100%",
-            backgroundImage: `url(${rightImageUrl})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            transition: "transform 1.2s cubic-bezier(0.2, 0, 0.2, 1)",
-            transform: hoverRight ? "scale(1.04)" : "scale(1)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundColor: "#000",
-            opacity: hoverRight ? 0.15 : 0.3,
-            transition: "opacity 0.4s ease",
-          }}
-        />
-      </Link>
-
-      <style jsx>{`
-        .split-hero-container {
-          flex-direction: row;
-          height: 56.25vw;
-        }
-        .split-hero-side {
-          width: 50%;
-          height: 100%;
-        }
-        @media (max-width: 768px) {
-          .split-hero-container {
-            flex-direction: column;
-            height: auto;
-          }
-          .split-hero-side {
-            width: 100%;
-            height: 50vw;
-          }
-        }
-      `}</style>
-    </div>
-  );
-};
-
 export default function HomePage() {
   return (
     <>
@@ -222,10 +109,9 @@ export default function HomePage() {
           showButton={true}
         />
 
-        {/* Position 2 - Split Section */}
-        <SplitHeroRow
-          leftImageUrl="/images/Hero_4.jpg"
-          rightImageUrl="/images/Hero_5.jpg"
+        {/* Position 2 */}
+        <HeroSection
+          imageUrl="/images/HERO_6.png"
         />
 
         {/* Position 3 (Moved from 2) */}
