@@ -1,0 +1,360 @@
+@import "tailwindcss";
+
+/* ============================================
+   BERNSTEIN LLC. — Design System
+   ============================================ */
+
+:root {
+  /* --- Colors: Primary --- */
+  --color-bernstein: #C8922A;
+  --color-noir: #0F0F0F;
+  --color-stone: #F2EDE4;
+
+  /* --- Colors: Secondary --- */
+  --color-cognac: #8B4513;
+  --color-olive: #4A4A35;
+  --color-sand: #D4C5A9;
+
+  /* --- Semantic --- */
+  --color-success: #3D6B4F;
+  --color-error: #8B2E2E;
+  --color-neutral-100: #FAFAF8;
+  --color-neutral-900: #1A1A18;
+
+  /* --- Backgrounds --- */
+  --background: var(--color-stone);
+  --foreground: var(--color-noir);
+
+  /* --- Spacing (8px base) --- */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-12: 96px;
+  --space-16: 128px;
+  --space-24: 192px;
+
+  /* --- Typography Scale --- */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-md: 18px;
+  --text-lg: 24px;
+  --text-xl: 36px;
+  --text-2xl: 52px;
+  --text-3xl: 72px;
+  --text-4xl: 96px;
+
+  /* --- Motion --- */
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-micro: 250ms;
+  --duration-macro: 400ms;
+  --duration-image: 600ms;
+  /* --- Breakpoints --- */
+  --bp-sm: 390px;
+  --bp-md: 768px;
+  --bp-lg: 1280px;
+  --bp-xl: 1920px;
+}
+
+
+/* --- Tailwind v4 theme inline --- */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-bernstein: var(--color-bernstein);
+  --color-noir: var(--color-noir);
+  --color-stone: var(--color-stone);
+  --color-cognac: var(--color-cognac);
+  --color-olive: var(--color-olive);
+  --color-sand: var(--color-sand);
+  --color-success: var(--color-success);
+  --color-error: var(--color-error);
+
+  --font-editorial: var(--font-editorial), "Georgia", serif;
+  --font-suisse: var(--font-suisse), "Helvetica Neue", "Arial", sans-serif;
+
+  --spacing-1: var(--space-1);
+  --spacing-2: var(--space-2);
+  --spacing-3: var(--space-3);
+  --spacing-4: var(--space-4);
+  --spacing-6: var(--space-6);
+  --spacing-8: var(--space-8);
+  --spacing-12: var(--space-12);
+  --spacing-16: var(--space-16);
+  --spacing-24: var(--space-24);
+
+  --text-xs: var(--text-xs);
+  --text-sm: var(--text-sm);
+  --text-base: var(--text-base);
+  --text-md: var(--text-md);
+  --text-lg: var(--text-lg);
+  --text-xl: var(--text-xl);
+  --text-2xl: var(--text-2xl);
+  --text-3xl: var(--text-3xl);
+  --text-4xl: var(--text-4xl);
+
+  --breakpoint-sm: 390px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1280px;
+  --breakpoint-xl: 1920px;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-suisse), "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* --- Headings: Editorial New, weight 200 --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-editorial), "Georgia", serif;
+  font-weight: 200;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: var(--text-3xl);
+}
+
+h2 {
+  font-size: var(--text-xl);
+}
+
+h3 {
+  font-size: var(--text-lg);
+}
+
+h4 {
+  font-size: var(--text-md);
+}
+
+/* --- Links --- */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--duration-micro) var(--ease-default);
+}
+
+a:hover {
+  color: var(--color-bernstein);
+}
+
+/* --- Images --- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   Button Primitives
+   ============================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  padding: 0 var(--space-4);
+  border: none;
+  border-radius: 0;
+  font-family: var(--font-suisse), sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--duration-micro) var(--ease-default);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--color-noir);
+  color: var(--color-stone);
+}
+
+.btn-primary:hover {
+  background: var(--color-bernstein);
+  color: var(--color-stone);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--color-noir);
+  color: var(--color-noir);
+}
+
+.btn-ghost:hover {
+  background: var(--color-noir);
+  color: var(--color-stone);
+}
+
+.btn-ghost-light {
+  background: transparent;
+  border: 1px solid var(--color-stone);
+  color: var(--color-stone);
+}
+
+.btn-ghost-light:hover {
+  background: var(--color-stone);
+  color: var(--color-noir);
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+
+.nav-link {
+  font-family: var(--font-suisse), sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-noir);
+  transition: color var(--duration-micro) var(--ease-default);
+}
+
+.nav-link:hover {
+  color: var(--color-bernstein);
+}
+
+/* --- Nav transparent state (on hero) --- */
+.nav-transparent .nav-link {
+  color: var(--color-stone);
+}
+
+.nav-transparent .nav-link:hover {
+  color: var(--color-bernstein);
+}
+
+/* ============================================
+   Section Spacing
+   ============================================ */
+
+.section {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+}
+
+@media (max-width: 1279px) {
+  .section {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: var(--text-xl);
+  }
+
+  h2 {
+    font-size: var(--text-lg);
+  }
+
+  .section {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+  }
+
+  .btn {
+    height: 48px;
+  }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.text-editorial {
+  font-family: var(--font-editorial), "Georgia", serif;
+  font-weight: 200;
+}
+
+.text-suisse {
+  font-family: var(--font-suisse), sans-serif;
+}
+
+.container-site {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+}
+
+@media (min-width: 1280px) {
+  .container-site {
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+/* --- Focus Accessibility --- */
+:focus-visible {
+  outline: 2px solid var(--color-bernstein);
+  outline-offset: 2px;
+}
+
+/* --- Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   Scrollbar
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-stone);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sand);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-bernstein);
+}

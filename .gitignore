@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Temporary / intermediate files
+.tmp/
+
+# Google OAuth credentials
+credentials.json
+token.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Next.js
+.next/
+out/
+
+# Build output
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
